@@ -92,15 +92,11 @@
                                     <field name="description"/>
                                 </group>
                             </page>
-
-                            <page string="MATERIALES" >
-                                <field name="materials_ids" >
+                             <page string="Materiales" >
+                                <field name="materieales_id" >
                                     <tree editable="bottom">
-                                        <field name="nombre"/>
-                                        <field name="medida"/>
-                                        <field name="materials_cuantity"/>
-                                        <field name="materials_inventory"/>
-                                        <field name="materials_required"/>
+                                        <field name="material"/>
+                                        <field name="cantidad"/>
                                     </tree>
                                 </field>
                             </page>
