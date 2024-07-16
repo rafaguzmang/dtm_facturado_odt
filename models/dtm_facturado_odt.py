@@ -49,41 +49,41 @@ class ODTFacturado (models.Model):
     def action_imprimir_materiales(self): # Imprime según el formato que se esté llenando
         return self.env.ref("dtm_odt.formato_lista_materiales").report_action(self)
 
-    def get_view(self, view_id=None, view_type='form', **options):
-        res = super(ODTFacturado,self).get_view(view_id, view_type,**options)
-
-        get_self = self.env['dtm.facturado.odt'].search([])
-        for result in get_self:
-            for record in result:
-                lines = []
-                for item in record.materials_ids:
-                    nombre = ""
-                    medida =""
-                    cantidad = 0
-                    if item.nombre:
-                        nombre = item.nombre
-                    if item.medida:
-                        medida = item.medida
-                    if item.materials_cuantity:
-                        cantidad = item.materials_cuantity
-                    dato = f"{nombre} {medida}"
-                    vals = {
-                        "material":dato,
-                        "cantidad":cantidad
-                    }
-                    get_item = self.env['dtm.facturado.materiales'].search([("model_id","=",self._origin.id),("material","=",dato),("cantidad","=",cantidad)])
-                    if get_item:
-                        get_item.write(vals)
-                        lines.append(get_item.id)
-                    else:
-                        get_item.create(vals)
-                        get_item = self.env['dtm.facturado.materiales'].search([("model_id","=",self._origin.id),("material","=",dato),("cantidad","=",cantidad)])
-                        lines.append(get_item.id)
-                record.write({'materieales_id': [(5, 0, {})]})
-                record.write({'materieales_id': [(6, 0, lines)]})
-                self.env['dtm.materials.line'].browse(lines)
-
-        return res
+    # def get_view(self, view_id=None, view_type='form', **options):
+    #     res = super(ODTFacturado,self).get_view(view_id, view_type,**options)
+    #
+    #     get_self = self.env['dtm.facturado.odt'].search([])
+    #     for result in get_self:
+    #         for record in result:
+    #             lines = []
+    #             for item in record.materials_ids:
+    #                 nombre = ""
+    #                 medida =""
+    #                 cantidad = 0
+    #                 if item.nombre:
+    #                     nombre = item.nombre
+    #                 if item.medida:
+    #                     medida = item.medida
+    #                 if item.materials_cuantity:
+    #                     cantidad = item.materials_cuantity
+    #                 dato = f"{nombre} {medida}"
+    #                 vals = {
+    #                     "material":dato,
+    #                     "cantidad":cantidad
+    #                 }
+    #                 get_item = self.env['dtm.facturado.materiales'].search([("model_id","=",self._origin.id),("material","=",dato),("cantidad","=",cantidad)])
+    #                 if get_item:
+    #                     get_item.write(vals)
+    #                     lines.append(get_item.id)
+    #                 else:
+    #                     get_item.create(vals)
+    #                     get_item = self.env['dtm.facturado.materiales'].search([("model_id","=",self._origin.id),("material","=",dato),("cantidad","=",cantidad)])
+    #                     lines.append(get_item.id)
+    #             record.write({'materieales_id': [(5, 0, {})]})
+    #             record.write({'materieales_id': [(6, 0, lines)]})
+    #             self.env['dtm.materials.line'].browse(lines)
+    #
+    #     return res
 
 class Materiales(models.Model):
     _name = "dtm.facturado.materiales"
