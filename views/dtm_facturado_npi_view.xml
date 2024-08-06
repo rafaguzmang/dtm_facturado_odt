@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id = "dtm_facturado_odt_accion" model="ir.actions.act_window">
-            <field name="name">OT Facturadas</field>
-            <field name="res_model">dtm.facturado.odt</field>
+        <record id = "dtm_facturado_npi_accion" model="ir.actions.act_window">
+            <field name="name">NPI Terminados</field>
+            <field name="res_model">dtm.facturado.npi</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <record id="dtm_facturado_odt_tree" model="ir.ui.view">
-            <field name="name">dtm.facturado.odt.tree</field>
-            <field name="model">dtm.facturado.odt</field>
+        <record id="dtm_facturado_npi_tree" model="ir.ui.view">
+            <field name="name">dtm.facturado.npi.tree</field>
+            <field name="model">dtm.facturado.npi</field>
             <field name="arch" type="xml">
                 <tree>
 <!--                    <field name="sequence" widget="handle"></field>-->
@@ -24,11 +24,9 @@
             </field>
         </record>
 
-
-
-        <record id="dtm_facturado_odt_form" model="ir.ui.view">
-            <field name="name">dtm.facturado.odt.form</field>
-            <field name="model">dtm.facturado.odt</field>
+        <record id="dtm_facturado_npi_form" model="ir.ui.view">
+            <field name="name">dtm.facturado.npi.form</field>
+            <field name="model">dtm.facturado.npi</field>
             <field name="arch" type="xml">
                 <form string="formulario">
                      <style>
@@ -38,22 +36,11 @@
                         }
 
                     </style>
-                    <header>
-<!--                        <button type="object" name="action_firma" string="Firma"  icon="fa-pencil" class="btn btn-primary"/>-->
-<!--                        <button type="object" name="action_detener" string="Detener"  icon="fa-hourglass" class="btn btn-danger " attrs="{'invisible': [('pausa', '=', True)]}"/>-->
-<!--                        <button type="object" name="action_continuar" string="Continuar"  icon="fa-play" class="btn btn-success " attrs="{'invisible': [('pausa', '=', False)]}"/>-->
-                    </header>
-
                     <sheet>
-
                             <h1 > ORDEN DE TRABAJO </h1>
-
-
                             <h2> Diseño y Transformaciones Metálicas S. de R.L. de C.V.</h2>
-
                         <group >
                             <field name="status"/>
-<!--                            <field name="pausa" invisible="1" />-->
                         </group>
                         <group >
                             <group>
@@ -173,5 +160,7 @@
                 </form>
             </field>
         </record>
-/    </data>
+
+
+    </data>
 </odoo>

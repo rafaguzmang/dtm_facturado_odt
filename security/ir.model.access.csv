@@ -2,4 +2,7 @@ id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_dtm_facturado_odt,access.dtm.facturado.odt,model_dtm_facturado_odt,base.group_user,1,1,1,1
 access_dtm_facturado_materiales,access.dtm.facturado.materiales,model_dtm_facturado_materiales,base.group_user,1,1,1,1
 
+access_dtm_facturado_npi,access.dtm.facturado.npi,model_dtm_facturado_npi,base.group_user,1,1,1,1
+access_dtm_materiales_npi,access.dtm.materiales.npi,model_dtm_materiales_npi,base.group_user,1,1,1,1
+
 
