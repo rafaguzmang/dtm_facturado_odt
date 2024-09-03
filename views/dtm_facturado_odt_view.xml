@@ -24,6 +24,19 @@
             </field>
         </record>
 
+        <record id = "dtm_facturado_odt_search" model="ir.ui.view">
+            <field name="name">dtm_facturado_odt_search</field>
+            <field name="model">dtm.facturado.odt</field>
+            <field name ="arch" type="xml">
+               <search>
+                    <field name="ot_number"/>
+                    <field name="name_client"/>
+                    <field name="product_name"/>
+                    <field name="po_number"/>
+               </search>
+            </field>
+        </record>
+
 
 
         <record id="dtm_facturado_odt_form" model="ir.ui.view">

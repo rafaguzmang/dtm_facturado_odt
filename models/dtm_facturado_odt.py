@@ -17,7 +17,7 @@ class ODTFacturado (models.Model):
     version_ot = fields.Integer(string="VERSIÓN OT",readonly=True)
     color = fields.Char(string="COLOR",default="N/A",readonly=True)
     cuantity = fields.Integer(string="CANTIDAD",readonly=True)
-    materials_ids = fields.Many2many("dtm.materials.line",readonly=True)
+    # materials_ids = fields.Many2many("dtm.materials.line",readonly=True)
     materieales_id = fields.One2many("dtm.facturado.materiales","model_id",readonly=True)
     firma = fields.Char(string="Firma", readonly = True)
     firma_compras = fields.Char()
