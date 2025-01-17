@@ -31,11 +31,12 @@ class ODTFacturado (models.Model):
     planos = fields.Boolean(string="Planos",default=False, readonly=True)
     nesteos = fields.Boolean(string="Nesteos",default=False, readonly=True)
 
-    rechazo_id = fields.Many2many("dtm.odt.rechazo")
+    rechazo_id = fields.Many2many("dtm.proceso.rechazo")
     anexos_id = fields.Many2many("dtm.proceso.anexos",readonly=True)
     cortadora_id = fields.Many2many("dtm.proceso.cortadora",readonly=True)
     primera_pieza_id = fields.Many2many("dtm.proceso.primer",readonly=True)
     tubos_id = fields.Many2many("dtm.proceso.tubos",readonly=True)
+    calidad_liberacion = fields.Many2many("dtm.proceso.liberacion",readonly=True)
 
     #---------------------Resumen de descripción------------
 
@@ -53,7 +54,7 @@ class ODTFacturado (models.Model):
 
 class Materiales(models.Model):
     _name = "dtm.facturado.materiales"
-    _description = "Se guarda el registro de los materiales utizados"
+    _description = "Se guarda el registro de los materiales utilizados"
     npi_id = fields.Many2one('dtm.facturado.npi')
     model_id = fields.Many2one("dtm.facturado.odt")
     material = fields.Char(string = "Material")
@@ -87,11 +88,14 @@ class NPIterminado (models.Model):
     planos = fields.Boolean(string="Planos",default=False, readonly=True)
     nesteos = fields.Boolean(string="Nesteos",default=False, readonly=True)
 
-    rechazo_id = fields.Many2many("dtm.odt.rechazo")
+    rechazo_id = fields.Many2many("dtm.proceso.rechazo")
     anexos_id = fields.Many2many("dtm.proceso.anexos",readonly=True)
     cortadora_id = fields.Many2many("dtm.proceso.cortadora",readonly=True)
     primera_pieza_id = fields.Many2many("dtm.proceso.primer",readonly=True)
     tubos_id = fields.Many2many("dtm.proceso.tubos",readonly=True)
+    calidad_liberacion = fields.Many2many("dtm.proceso.liberacion",readonly=True)
+
+
 
     #---------------------Resumen de descripción------------
 
