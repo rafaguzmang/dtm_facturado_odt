@@ -47,10 +47,12 @@ class ODTFacturado (models.Model):
     notes = fields.Text(string="notes")
 
     def action_imprimir_formato(self): # Imprime según el formato que se esté llenando
-        return self.env.ref("dtm_odt.formato_orden_de_trabajo").report_action(self)
+        return self.env.ref("dtm_facturado_odt.formato_orden_de_trabajo").report_action(self)
 
     def action_imprimir_materiales(self): # Imprime según el formato que se esté llenando
-        return self.env.ref("dtm_odt.formato_lista_materiales").report_action(self)
+        return self.env.ref("dtm_facturado_odt.formato_lista_materiales").report_action(self)
+
+
 
 class Materiales(models.Model):
     _name = "dtm.facturado.materiales"
