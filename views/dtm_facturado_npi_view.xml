@@ -68,10 +68,6 @@
                                 <field name="planos" widget="boolean_toggle" />
                             </group>
                         </group>
-                        <group>
-                            <field name="firma_ventas"/>
-                            <field name="firma_compras"/>
-                        </group>
 
                         <notebook>
                             <page  string="RESUMEN">
