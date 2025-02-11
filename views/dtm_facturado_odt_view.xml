@@ -16,6 +16,7 @@
                     <field name="ot_number"/>
                     <field name="tipe_order"/>
                     <field name="date_rel" widget="date"/>
+                    <field name="date_terminado"/>
                     <field name="name_client"/>
                     <field name="product_name"/>
 <!--                    <field name="status" widget="many2many_tags" options="{'color_field': 'color'}"/>-->
@@ -83,6 +84,7 @@
                             <group>
                                 <field name="po_number" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
                                 <field name="date_in" />
+                                <field name="date_terminado"/>
                                 <field name="date_rel"/>
                                  <field name="nesteos" widget="boolean_toggle" />
                             </group>
@@ -93,10 +95,7 @@
                                 <field name="planos" widget="boolean_toggle" />
                             </group>
                         </group>
-                        <group>
-                            <field name="firma_ventas"/>
-                            <field name="firma_compras"/>
-                        </group>
+
 
                         <notebook>
                             <page  string="RESUMEN">
