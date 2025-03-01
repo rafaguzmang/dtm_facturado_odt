@@ -55,19 +55,18 @@ class ODTFacturado (models.Model):
     def get_view(self, view_id=None, view_type='form', **options):
         res = super(ODTFacturado,self).get_view(view_id, view_type,**options)
 
-        get_fact = self.env["dtm.ordenes.compra.facturado"].search([])
-
-        get_this = self.env["dtm.facturado.odt"].search([])
-
-        for orden in get_this:
-            # print(orden.ot_number)
-            for ordenes in get_fact:
-                # print(ordenes.descripcion_id.mapped('orden_trabajo'))
-                if str(orden.ot_number) in ordenes.descripcion_id.mapped('orden_trabajo'):
-                    print(orden.ot_number,ordenes.orden_compra)
-                    orden.write({
-                        'status':ordenes.orden_compra
-                    })
+        # get_fact = self.env["dtm.ordenes.compra.facturado"].search([])
+        #
+        # get_this = self.env["dtm.facturado.odt"].search([])
+        #
+        # for orden in get_this:
+        #     # print(orden.ot_number)
+        #     for ordenes in get_fact:
+        #         # print(ordenes.descripcion_id.mapped('orden_trabajo'))
+        #         if str(orden.ot_number) in ordenes.descripcion_id.mapped('orden_trabajo'):
+        #             orden.write({
+        #                 'status':ordenes.orden_compra
+        #             })
 
         return res
 
