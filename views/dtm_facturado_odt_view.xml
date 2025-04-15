@@ -85,14 +85,15 @@
                                 <field name="po_number" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
                                 <field name="date_in" />
                                 <field name="date_terminado"/>
+                                <field name="date_inicio"/>
                                 <field name="date_rel"/>
-                                 <field name="nesteos" widget="boolean_toggle" />
                             </group>
                              <group>
                                 <field name="version_ot" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
                                 <field name="cuantity" options='{"type": "number"}'/>
                                 <field name="color" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
                                 <field name="planos" widget="boolean_toggle" />
+                                <field name="nesteos" widget="boolean_toggle" />
                             </group>
                         </group>
 

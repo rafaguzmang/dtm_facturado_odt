@@ -6,8 +6,6 @@ class ODTFacturado (models.Model):
     _order = "ot_number desc"
     _rec_name = "ot_number"
 
-
-
     status = fields.Char(string="Factura/s",readonly=True)
     ot_number = fields.Integer(string="NÚMERO",readonly=True)
     tipe_order = fields.Char(string="TIPO",readonly=True)
@@ -37,7 +35,8 @@ class ODTFacturado (models.Model):
     primera_pieza_id = fields.Many2many("dtm.proceso.primer",readonly=True)
     tubos_id = fields.Many2many("dtm.proceso.tubos",readonly=True)
     calidad_liberacion = fields.Many2many("dtm.proceso.liberacion",readonly=True)
-    date_terminado = fields.Date(string="Manufactura",readonly=True)
+    date_inicio = fields.Date(string="Inicio", readonly=True)
+    date_terminado = fields.Date(string="Terminado",readonly=True)
     #---------------------Resumen de descripción------------
 
     description = fields.Text(string="DESCRIPCIÓN",readonly=True)
