@@ -84,8 +84,8 @@
                             <group>
                                 <field name="po_number" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
                                 <field name="date_in" />
-                                <field name="date_terminado"/>
                                 <field name="date_inicio"/>
+                                <field name="date_terminado"/>
                                 <field name="date_rel"/>
                             </group>
                              <group>

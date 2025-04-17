@@ -35,8 +35,8 @@ class ODTFacturado (models.Model):
     primera_pieza_id = fields.Many2many("dtm.proceso.primer",readonly=True)
     tubos_id = fields.Many2many("dtm.proceso.tubos",readonly=True)
     calidad_liberacion = fields.Many2many("dtm.proceso.liberacion",readonly=True)
-    date_inicio = fields.Date(string="Inicio", readonly=True)
-    date_terminado = fields.Date(string="Terminado",readonly=True)
+    date_inicio = fields.Date(string="Inicio", readonly=False)
+    date_terminado = fields.Date(string="Terminado",readonly=False)
     #---------------------Resumen de descripción------------
 
     description = fields.Text(string="DESCRIPCIÓN",readonly=True)
