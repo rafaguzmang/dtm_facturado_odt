@@ -3,5 +3,7 @@ access_dtm_facturado_odt,access.dtm.facturado.odt,model_dtm_facturado_odt,base.g
 access_dtm_facturado_materiales,access.dtm.facturado.materiales,model_dtm_facturado_materiales,base.group_user,1,1,1,1
 
 access_dtm_facturado_npi,access.dtm.facturado.npi,model_dtm_facturado_npi,base.group_user,1,1,1,1
+access_dtm_facturado_retrabajo,access.dtm.facturado.retrabajo,model_dtm_facturado_retrabajo,base.group_user,1,1,1,1
+
 
 

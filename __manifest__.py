@@ -8,6 +8,7 @@
         'security/ir.model.access.csv',
         'views/dtm_facturado_odt_view.xml',
         'views/dtm_facturado_npi_view.xml',
+        'views/dtm_facturado_retrabajo_view.xml',
          #Reports
         'reports/orden_de_trabajo.xml',
         'reports/lista_materiales.xml',
