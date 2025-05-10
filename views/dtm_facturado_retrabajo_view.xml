@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id = "dtm_facturado_retrabajo_accion" model="ir.actions.act_window">
+            <field name="name">Retrabajos Terminados</field>
+            <field name="res_model">dtm.facturado.retrabajo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="dtm_facturado_retrabajo_tree" model="ir.ui.view">
+            <field name="name">dtm.facturado.retrabajo.tree</field>
+            <field name="model">dtm.facturado.retrabajo</field>
+            <field name="arch" type="xml">
+                <tree>
+<!--                    <field name="sequence" widget="handle"></field>-->
+                    <field name="ot_number"/>
+                    <field name="tipe_order"/>
+                    <field name="date_rel" widget="date"/>
+                    <field name="name_client"/>
+                    <field name="product_name"/>
+<!--                    <field name="status" widget="many2many_tags" options="{'color_field': 'color'}"/>-->
+                    <field name="status" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="dtm_facturado_retrabajo_form" model="ir.ui.view">
+            <field name="name">dtm.facturado.retrabajo.form</field>
+            <field name="model">dtm.facturado.retrabajo</field>
+            <field name="arch" type="xml">
+                <form string="formulario">
+                     <style>
+                        .o_statusbar_buttons{
+                            width: 100%;
+                            justify-content: space-around;
+                        }
+
+                    </style>
+                    <sheet>
+                            <h1 > ORDEN DE TRABAJO </h1>
+                            <h2> Diseño y Transformaciones Metálicas S. de R.L. de C.V.</h2>
+                        <group >
+                            <field name="status"/>
+                        </group>
+                        <group >
+                            <group>
+                                <field name="tipe_order"/>
+                                <field name="name_client" attrs="{'required': [('tipe_order', '!=', '')]}"/>
+                                <field name="firma"/>
+                            </group>
+                            <group>
+                                <field name="product_name" attrs="{'required': [('tipe_order', '!=', '')]}"/>
+                                <field name="ot_number"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="po_number" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
+                                <field name="date_in" />
+                                <field name="date_rel"/>
+                                 <field name="nesteos" widget="boolean_toggle" />
+                            </group>
+                             <group>
+                                <field name="version_ot" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
+                                <field name="cuantity" options='{"type": "number"}'/>
+                                <field name="color" attrs="{'invisible': [('tipe_order', '=', 'npi')]}"/>
+                                <field name="planos" widget="boolean_toggle" />
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page  string="RESUMEN">
+                                <group>
+                                    <field name="description"/>
+                                </group>
+                            </page>
+                             <page string="Materiales" >
+                                <field name="materieales_id" >
+                                    <tree editable="bottom">
+                                        <field name="material"/>
+                                        <field name="cantidad"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="RECHAZO">
+                                <field name="rechazo_id"/>
+                            </page>
+                            <page string="PLANOS">
+                                <field name="anexos_id" >
+                                     <tree>
+                                            <field name="nombre" invisible="0"></field>
+                                     </tree>
+                                     <form>
+                                        <group >
+                                            <field name="documentos" filename="nombre" widget="pdf_viewer"></field>
+                                            <field name="nombre" invisible="1"></field>
+                                        </group>
+                                     </form>
+                                </field>
+                            </page>
+                            <page string="Primera Pieza">
+                                <field name="primera_pieza_id">
+                                  <tree>
+                                            <field name="nombre" invisible="0"></field>
+                                            <field name="cortado" />
+                                     </tree>
+                                     <form>
+                                        <group >
+                                            <field name="documentos" filename="nombre" widget="pdf_viewer"></field>
+                                            <field name="nombre" invisible="1"></field>
+                                        </group>
+                                     </form>
+                                </field>
+                            </page>
+
+                            <page string="MITSUBISHI">
+                                <field name="cortadora_id" >
+                                     <tree>
+                                            <field name="nombre" invisible="0"></field>
+                                            <field name="cortado" />
+                                     </tree>
+                                     <form>
+                                        <group >
+                                            <field name="documentos" filename="nombre" widget="pdf_viewer"></field>
+                                            <field name="nombre" invisible="1"></field>
+                                        </group>
+                                     </form>
+                                </field>
+                            </page>
+                            <page string="LTP 6032">
+                                <field name="tubos_id" >
+                                     <tree>
+                                            <field name="nombre" invisible="0"></field>
+                                     </tree>
+                                     <form>
+                                        <group >
+                                            <field name="documentos" filename="nombre"  widget="pdf_viewer"></field>
+                                            <field name="nombre" invisible="1"></field>
+                                        </group>
+                                     </form>
+                                </field>
+                            </page>
+                            <page string="CALIDAD">
+                                <field name="calidad_liberacion"/>
+                            </page>
+
+                            <page string="NOTAS">
+                                <field name="notes"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id = "dtm_facturado_retrabajo_search" model="ir.ui.view">
+            <field name="name">dtm_facturado_retrabajo_search</field>
+            <field name="model">dtm.facturado.retrabajo</field>
+            <field name ="arch" type="xml">
+               <search>
+                    <field name="ot_number"/>
+                    <field name="name_client"/>
+                    <field name="product_name"/>
+                    <field name="po_number"/>
+               </search>
+            </field>
+        </record>
+
+<!--        <menuitem id="dtm_facturado_retrabajo_view"  action="dtm_facturado_odt.dtm_facturado_retrabajo_accion"/>-->
+
+    </data>
+</odoo>
