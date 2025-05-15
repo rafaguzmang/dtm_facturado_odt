@@ -15,6 +15,7 @@ class ODTFacturado (models.Model):
     po_number = fields.Char(string="PO",readonly=True)
     date_rel = fields.Date(string="FECHA DE ENTREGA",readonly=True)
     version_ot = fields.Integer(string="VERSIÓN OT",readonly=True)
+    revision_ot = fields.Integer(string="VERSIÓN",default=1,readonly=True) # Esto es versión
     color = fields.Char(string="COLOR",default="N/A",readonly=True)
     cuantity = fields.Integer(string="CANTIDAD",readonly=True)
     # materials_ids = fields.Many2many("dtm.materials.line",readonly=True)
