@@ -15,6 +15,7 @@ class ODTFacturado (models.Model):
     po_number = fields.Char(string="PO",readonly=True)
     date_rel = fields.Date(string="FECHA DE ENTREGA",readonly=True)
     version_ot = fields.Integer(string="VERSIÓN OT",readonly=True)
+    revision_ot = fields.Integer(string="VERSIÓN",default=1,readonly=True) # Esto es versión
     color = fields.Char(string="COLOR",default="N/A",readonly=True)
     cuantity = fields.Integer(string="CANTIDAD",readonly=True)
     # materials_ids = fields.Many2many("dtm.materials.line",readonly=True)
@@ -76,6 +77,7 @@ class Materiales(models.Model):
     _description = "Se guarda el registro de los materiales utilizados"
     npi_id = fields.Many2one('dtm.facturado.npi')
     model_id = fields.Many2one("dtm.facturado.odt")
+    retrabajo_id = fields.Many2one("dtm.facturado.retrabajo")
     material = fields.Char(string = "Material")
     cantidad = fields.Integer()
 
@@ -130,41 +132,7 @@ class NPIterminado (models.Model):
     def action_imprimir_materiales(self): # Imprime según el formato que se esté llenando
         return self.env.ref("dtm_odt.formato_lista_materiales").report_action(self)
 
-    # def get_view(self, view_id=None, view_type='form', **options):
-    #     res = super(ODTFacturado,self).get_view(view_id, view_type,**options)
-    #
-    #     get_self = self.env['dtm.facturado.odt'].search([])
-    #     for result in get_self:
-    #         for record in result:
-    #             lines = []
-    #             for item in record.materials_ids:
-    #                 nombre = ""
-    #                 medida =""
-    #                 cantidad = 0
-    #                 if item.nombre:
-    #                     nombre = item.nombre
-    #                 if item.medida:
-    #                     medida = item.medida
-    #                 if item.materials_cuantity:
-    #                     cantidad = item.materials_cuantity
-    #                 dato = f"{nombre} {medida}"
-    #                 vals = {
-    #                     "material":dato,
-    #                     "cantidad":cantidad
-    #                 }
-    #                 get_item = self.env['dtm.facturado.materiales'].search([("model_id","=",self._origin.id),("material","=",dato),("cantidad","=",cantidad)])
-    #                 if get_item:
-    #                     get_item.write(vals)
-    #                     lines.append(get_item.id)
-    #                 else:
-    #                     get_item.create(vals)
-    #                     get_item = self.env['dtm.facturado.materiales'].search([("model_id","=",self._origin.id),("material","=",dato),("cantidad","=",cantidad)])
-    #                     lines.append(get_item.id)
-    #             record.write({'materieales_id': [(5, 0, {})]})
-    #             record.write({'materieales_id': [(6, 0, lines)]})
-    #             self.env['dtm.materials.line'].browse(lines)
-    #
-    #     return res
+ 
 
 class NPIterminado (models.Model):
     _name = "dtm.facturado.retrabajo"
@@ -183,7 +151,7 @@ class NPIterminado (models.Model):
     version_ot = fields.Integer(string="VERSIÓN OT",readonly=True)
     color = fields.Char(string="COLOR",default="N/A",readonly=True)
     cuantity = fields.Integer(string="CANTIDAD",readonly=True)
-    materieales_id = fields.One2many("dtm.facturado.materiales","npi_id",readonly=True)
+    materieales_id = fields.One2many("dtm.facturado.materiales","retrabajo_id",readonly=True)
     firma = fields.Char(string="Firma", readonly = True)
     firma_compras = fields.Char()
     firma_diseno = fields.Char()

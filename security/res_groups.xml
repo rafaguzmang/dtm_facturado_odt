@@ -1,0 +1,16 @@
+<odoo>
+    <record id="group_dtm_facturado_odt" model="res.groups">
+        <field name="name">Facturado</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <record id="group_dtm_facturado_odt_admin" model="res.groups">
+        <field name="name">Facturado Administración</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <record id="group_dtm_facturado_odt_restringido" model="res.groups">
+        <field name="name">Facturado Restringido</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

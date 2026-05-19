@@ -1,9 +1,13 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_dtm_facturado_odt,access.dtm.facturado.odt,model_dtm_facturado_odt,base.group_user,1,1,1,1
-access_dtm_facturado_materiales,access.dtm.facturado.materiales,model_dtm_facturado_materiales,base.group_user,1,1,1,1
+access_dtm_facturado_odt_admin,access.dtm.facturado.odt.admin,model_dtm_facturado_odt,group_dtm_facturado_odt_admin,1,1,1,1
+access_dtm_facturado_odt_restringido,access.dtm.facturado.odt.restringido,model_dtm_facturado_odt,group_dtm_facturado_odt_restringido,1,1,0,0
+access_dtm_facturado_materiales_admin,access.dtm.facturado.materiales.admin,model_dtm_facturado_materiales,group_dtm_facturado_odt_admin,1,1,1,1
+access_dtm_facturado_materiales_restringido,access.dtm.facturado.materiales.restringido,model_dtm_facturado_materiales,group_dtm_facturado_odt_restringido,1,1,0,0
 
-access_dtm_facturado_npi,access.dtm.facturado.npi,model_dtm_facturado_npi,base.group_user,1,1,1,1
-access_dtm_facturado_retrabajo,access.dtm.facturado.retrabajo,model_dtm_facturado_retrabajo,base.group_user,1,1,1,1
+access_dtm_facturado_npi_admin,access.dtm.facturado.npi.admin,model_dtm_facturado_npi,group_dtm_facturado_odt_admin,1,1,1,1
+access_dtm_facturado_npi_restringido,access.dtm.facturado.npi.restringido,model_dtm_facturado_npi,group_dtm_facturado_odt_restringido,1,1,0,0
+access_dtm_facturado_retrabajo_admin,access.dtm.facturado.retrabajo.admin,model_dtm_facturado_retrabajo,group_dtm_facturado_odt_admin,1,1,1,1
+access_dtm_facturado_retrabajo_restringido,access.dtm.facturado.retrabajo.restringido,model_dtm_facturado_retrabajo,group_dtm_facturado_odt_restringido,1,1,0,0
 
 
 

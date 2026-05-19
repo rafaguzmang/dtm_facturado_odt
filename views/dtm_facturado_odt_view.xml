@@ -16,12 +16,11 @@
                     <field name="ot_number"/>
                     <field name="version_ot" />
                     <field name="tipe_order"/>
-                    <field name="date_in"/>
+                    <field name="create_date"/>
                     <field name="date_rel" widget="date"/>
                     <field name="date_terminado"/>
                     <field name="name_client"/>
                     <field name="product_name"/>
-                    <field name="cuantity"/>
 <!--                    <field name="status" widget="many2many_tags" options="{'color_field': 'color'}"/>-->
                     <field name="status" />
                 </tree>
